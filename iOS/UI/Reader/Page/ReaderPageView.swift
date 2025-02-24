@@ -80,8 +80,10 @@ class ReaderPageView: UIView {
     }
 
     func setPageImage(url: URL, sourceId: String? = nil) async -> Bool {
-        progressView.setProgress(value: 0, withAnimation: false)
-        progressView.isHidden = false
+        if imageView.image == nil {
+            progressView.setProgress(value: 0, withAnimation: false)
+            progressView.isHidden = false
+        }
 
         let request: ImageRequest
 
@@ -89,7 +91,7 @@ class ReaderPageView: UIView {
             switch imageTask.state {
             case .running:
                 if completion != nil {
-                    completion!(false)
+                    completion!(imageView.image != nil)
                 }
                 return await withCheckedContinuation({ continuation in
                     self.completion = { success in
@@ -115,7 +117,7 @@ class ReaderPageView: UIView {
                 source.handlesImageRequests,
                 let request = try? await source.getImageRequest(url: url.absoluteString)
             {
-                urlRequest.url = URL(string: request.URL ?? "")
+                urlRequest.url = URL(string: request.url ?? "")
                 for (key, value) in request.headers {
                     urlRequest.setValue(value, forHTTPHeaderField: key)
                 }
