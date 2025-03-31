@@ -427,12 +427,7 @@ class MangaViewController: BaseTableViewController {
             defaultReadingMode: ReadingMode(rawValue: manga.viewer.rawValue)
         )
         let navigationController = ReaderNavigationController(rootViewController: readerController)
-        // bug: using fullScreen on macOS crashes for some reason
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            navigationController.modalPresentationStyle = .overFullScreen
-        } else {
-            navigationController.modalPresentationStyle = .fullScreen
-        }
+        navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }
 
@@ -1113,7 +1108,7 @@ extension MangaViewController {
         // refresh chapters
         var snapshot = NSDiffableDataSourceSnapshot<Section, Chapter>()
         snapshot.appendSections(current.sectionIdentifiers)
-        snapshot.appendItems(viewModel.chapterList)
+        snapshot.appendItems(viewModel.chapterList.unique()) // // ensure unique elements for data source
         dataSource.apply(
             snapshot,
             // skip animation if chapters are the same (needed when chapter is a class)
@@ -1127,7 +1122,7 @@ extension MangaViewController {
         // re-sort chapters
         var snapshot = NSDiffableDataSourceSnapshot<Section, Chapter>()
         snapshot.appendSections(dataSource.snapshot().sectionIdentifiers)
-        snapshot.appendItems(viewModel.chapterList)
+        snapshot.appendItems(viewModel.chapterList.unique())
         dataSource.apply(snapshot, animatingDifferences: false)
 
         // refresh chapters for fade animation
