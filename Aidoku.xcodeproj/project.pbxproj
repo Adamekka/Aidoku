@@ -2097,7 +2097,7 @@
 				);
 				MARKETING_VERSION = 0.6.8;
 				OTHER_LDFLAGS = "-ld_classic";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamekka.Aidoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamekka.aidoku;
 				PRODUCT_NAME = Aidoku;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -2118,7 +2118,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RUJJBSYLD9;
+				DEVELOPMENT_TEAM = 8U23YHUW42;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -2138,7 +2138,7 @@
 				);
 				MARKETING_VERSION = 0.6.8;
 				OTHER_LDFLAGS = "-ld_classic";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamekka.Aidoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamekka.aidoku;
 				PRODUCT_NAME = Aidoku;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
