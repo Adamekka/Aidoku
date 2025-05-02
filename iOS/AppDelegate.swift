@@ -115,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 "Reader.readingMode": "auto",
                 "Reader.skipDuplicateChapters": true,
+                "Reader.markDuplicateChapters": true,
                 "Reader.downsampleImages": true,
                 "Reader.cropBorders": false,
                 "Reader.saveImageOption": true,
@@ -124,7 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 "Reader.verticalInfiniteScroll": true,
                 "Reader.pillarbox": false,
                 "Reader.pillarboxAmount": 15,
-                "Reader.pillarboxOrientation": "both"
+                "Reader.pillarboxOrientation": "both",
+                "Reader.orientation": "device"
             ]
         )
 
